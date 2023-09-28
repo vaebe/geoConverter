@@ -11,6 +11,8 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "element-plus": "^2.3.14",
+    "gcoord": "^1.0.5",
     "vue": "^3.3.4"
   },
   "devDependencies": {
@@ -18,8 +20,11 @@
     "@types/node": "^20.7.1",
     "@vitejs/plugin-vue": "^4.2.3",
     "eslint": "^8.50.0",
+    "ress": "^5.0.2",
     "typescript": "^5.0.2",
     "unocss": "^0.56.4",
+    "unplugin-auto-import": "^0.16.6",
+    "unplugin-vue-components": "^0.25.2",
     "vite": "^4.4.5",
     "vue-tsc": "^1.8.5"
   }
