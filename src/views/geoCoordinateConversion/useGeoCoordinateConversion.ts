@@ -2,6 +2,7 @@ import { ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import gcoord from 'gcoord'
 import type { CRSTypes } from 'gcoord'
+import ClipboardJS from 'clipboard'
 import testGeoJson from '../../../public/testGeoJson.json'
 import { isJSONString, isMultiDimensionalArray, isValidGeoJSON } from '@/utils/tool.ts'
 
@@ -102,6 +103,8 @@ export function useGeoCoordinateConversion() {
 
   // 转换坐标系
   const transformCoordinateSystem = () => {
+    newCodeText.value = ''
+
     if (!oldCodeText.value) {
       ElMessage.warning('需要转换的坐标信息不存在！')
       return
@@ -130,11 +133,29 @@ export function useGeoCoordinateConversion() {
     newCodeText.value = JSON.stringify(data)
   }
 
+  const initClipboard = () => {
+    const clipboard = new ClipboardJS('.clipboardBtn')
+
+    clipboard.on('success', (e) => {
+      ElMessage.success('复制成功！')
+      e.clearSelection()
+    })
+
+    clipboard.on('error', (e) => {
+      // 数据存在，复制失败进行提示！
+      if (e.text)
+        ElMessage.warning('复制失败！')
+      else
+        ElMessage.warning('需要复制的数据为空！')
+    })
+  }
+
   return {
     oldCodeText,
     oldCodeType,
     newCodeText,
     newCodeType,
     transformCoordinateSystem,
+    initClipboard,
   }
 }

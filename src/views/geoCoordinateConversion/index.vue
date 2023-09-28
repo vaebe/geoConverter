@@ -4,7 +4,8 @@ import { coordinateSystemsObj, useGeoCoordinateConversion } from './useGeoCoordi
 
 const CoordinateSystemsInfo = defineAsyncComponent(() => import('./components/CoordinateSystemsInfo.vue'))
 
-const { oldCodeText, oldCodeType, newCodeText, newCodeType, transformCoordinateSystem } = useGeoCoordinateConversion()
+const { oldCodeText, oldCodeType, newCodeText, newCodeType, transformCoordinateSystem, initClipboard } = useGeoCoordinateConversion()
+initClipboard()
 </script>
 
 <template>
@@ -38,8 +39,11 @@ const { oldCodeText, oldCodeType, newCodeText, newCodeType, transformCoordinateS
       />
     </el-select>
 
-    <el-button class="ml-2" type="primary" @click="transformCoordinateSystem">
+    <el-button class="mx-2" type="primary" @click="transformCoordinateSystem">
       开始转换
+    </el-button>
+    <el-button type="success" class="clipboardBtn" :data-clipboard-text="newCodeText">
+      一键复制
     </el-button>
   </el-row>
 
