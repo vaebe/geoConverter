@@ -7,8 +7,9 @@ const PageFooter = defineAsyncComponent(() => import('@/components/Footer.vue'))
 </script>
 
 <template>
-  <el-scrollbar style="height: 100%">
+  <el-scrollbar style="height: 100vh">
     <PageHeader />
+
     <div class="layout">
       <GeoCoordinateConversion />
     </div>
@@ -22,7 +23,7 @@ const PageFooter = defineAsyncComponent(() => import('@/components/Footer.vue'))
 <style scoped>
 .layout{
     width: 80vw;
-    height: 100vh;
+    height: 100%;
     margin: 0 auto;
 }
 </style>
