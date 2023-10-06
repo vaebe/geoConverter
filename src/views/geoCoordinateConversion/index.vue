@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import { defineAsyncComponent } from 'vue'
 import { coordinateSystemsObj, useGeoCoordinateConversion } from './useGeoCoordinateConversion.ts'
-
-const CoordinateSystemsInfo = defineAsyncComponent(() => import('./components/CoordinateSystemsInfo.vue'))
 
 const { oldCodeText, oldCodeType, newCodeText, newCodeType, transformCoordinateSystem, initClipboard } = useGeoCoordinateConversion()
 initClipboard()
