@@ -10,7 +10,7 @@
       支持 js 一维、二维数组、geoJson 数据格式
     </h3>
 
-    <el-divider></el-divider>
+    <el-divider />
   </div>
 </template>
 
