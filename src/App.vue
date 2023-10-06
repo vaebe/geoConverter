@@ -12,6 +12,9 @@ const PageFooter = defineAsyncComponent(() => import('@/components/Footer.vue'))
     <div class="layout">
       <GeoCoordinateConversion />
     </div>
+
+    <el-divider />
+
     <PageFooter />
   </el-scrollbar>
 </template>
